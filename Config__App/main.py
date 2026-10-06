@@ -27,7 +27,7 @@ root = ctk.CTk()
 root.title("OrbitPad Configurator")
 root.geometry("1100x700")
 root.minsize(900, 600)
-root.iconbitmap(r"C:\Users\leolu\OneDrive\Dokumente\Visual Studio Code\Stardance\app.ico")
+root.iconbitmap(r"C:\Users\leolu\OneDrive\Dokumente\GitHub\OrbitPad\app.ico")
 
 sidebar = ctk.CTkFrame(root, width=220, fg_color=BG_SIDEBAR, corner_radius=0)
 sidebar.pack(side="left", fill="y")
@@ -172,126 +172,70 @@ ctk.CTkLabel(
 
 
 layer_names = ["Default", "Advanced"]
-n = 0
+active_layer = 0
 layer_buttons = []
 
 
-def normalize_active_layer_index():
-    global n
-    if not layer_names:
-        n = 0
-    elif n < 0:
-        n = 0
-    elif n >= len(layer_names):
-        n = len(layer_names) - 1
-
-
-def update_layer_button_colors():
-    for index, button in enumerate(layer_buttons):
-        if index >= len(layer_names):
-            button.configure(fg_color=BG_CARD)
-            continue
-        button.configure(fg_color=ACCENT if index == n else BG_CARD)
-
-
-def build_layer_buttons():
-    global n
+def draw_layers():
     for button in layer_buttons:
         button.destroy()
     layer_buttons.clear()
 
-    normalize_active_layer_index()
-
-    display_buttons = []
-    for index, name in enumerate(layer_names):
-        display_buttons.append((index, name, f"{index + 1} — {name}"))
-
-    if len(layer_names) < 4:
-        display_buttons.append((None, "+ Layer", "+ Layer"))
-
-    for i_layer, layer_name, display_name in display_buttons:
-        layer_btn = ctk.CTkButton(
+    for i, name in enumerate(layer_names):
+        button = ctk.CTkButton(
             layer_frame,
-            text=display_name,
+            text=f"{i + 1} — {name}",
             width=110,
             height=30,
             corner_radius=6,
             font=ctk.CTkFont(size=11),
-            fg_color=ACCENT if i_layer is not None and i_layer == n else BG_CARD,
+            fg_color=ACCENT if i == active_layer else BG_CARD,
             hover_color=ACCENT_DIM,
-            text_color=TEXT_PRIMARY,
-            border_width=0,
-            command=lambda layer=i_layer, name=layer_name: change_active(layer, name)
+            command=lambda i=i: select_layer(i),
         )
-        layer_btn.pack(side="left", padx=3)
-        layer_buttons.append(layer_btn)
+        button.pack(side="left", padx=3)
+        layer_buttons.append(button)
 
-    update_layer_button_colors()
-
-
-def add_layer_button():
-    add_layer = ctk.CTkToplevel(root)
-    add_layer.title("Layer")
-    add_layer.geometry("300x150")
-    add_layer._set_appearance_mode("dark")
-    add_layer.transient(root)
-    add_layer.grab_set()
-
-    layer_add_frame = ctk.CTkFrame(add_layer, fg_color="transparent")
-    layer_add_frame.pack(side="left", padx=10)
-
-    box_layer = ctk.CTkTextbox(
-        layer_add_frame,
-        width=260,
-        height=40,
-        border_width=2,
-        corner_radius=6,
-        fg_color=BG_CARD,
-        border_color=BORDER)
-    box_layer.pack(pady=20, padx=10, fill="both")
-    box_layer.focus_set()
-
-    def save_layer_name():
-        global n
-        layer_name = box_layer.get("1.0", "end").strip()
-        if not layer_name:
-            return
-
-        layer_name = layer_name.title()
-        if layer_name == "+ Layer":
-            return
-        if layer_name in layer_names:
-            n = layer_names.index(layer_name)
-            add_layer.destroy()
-            build_layer_buttons()
-            return
-
-        layer_names.append(layer_name)
-        n = len(layer_names) - 1
-        add_layer.destroy()
-        build_layer_buttons()
-
-    ctk.CTkButton(layer_add_frame, text="Add", command=save_layer_name).pack(pady=(0, 10))
+    if len(layer_names) < 4:
+        button = ctk.CTkButton(
+            layer_frame,
+            text="+ Layer",
+            width=110,
+            height=30,
+            corner_radius=6,
+            font=ctk.CTkFont(size=11),
+            fg_color="transparent",
+            text_color=ACCENT,
+            border_width=1,
+            border_color=BORDER,
+            hover_color=BG_KEY_HOV,
+            command=add_layer,
+        )
+        button.pack(side="left", padx=3)
+        layer_buttons.append(button)
 
 
-def change_active(layer, name):
-    global n
-    if name == "+ Layer":
-        add_layer_button()
+def select_layer(index):
+    global active_layer
+    active_layer = index
+    draw_layers()
+
+
+def add_layer():
+    global active_layer
+    dialog = ctk.CTkInputDialog(text="Name of Layer:", title="New Layer")
+    name = dialog.get_input()         
+    if not name or not name.strip():
         return
 
-    if layer is None:
-        layer = n
-    if layer < 0:
-        layer = 0
-    elif layer >= len(layer_names):
-        layer = len(layer_names) - 1
-
-    n = layer
-    update_layer_button_colors()
+    name = name.strip().title()
+    if name not in layer_names:
+        layer_names.append(name)
+    active_layer = layer_names.index(name)
+    draw_layers()
 
 
-build_layer_buttons()
+draw_layers()
 
 
 
