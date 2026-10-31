@@ -20,63 +20,54 @@ OrbitPad is a 12-key macropad built around a Raspberry Pi Pico. It combines two 
    4   8  12
   ```
 
-- **Profiles and layers:** each profile can contain different 12-key layouts. The separate button on GP9 cycles layers; key 12 is an ordinary assignable key.
+- **Profiles and layers:** each profile can contain different 12-key layouts. The separate button on GP9 cycles layers.
 - **Two external rotary encoders:** currently mapped to volume/mute and media playback controls.
-- **12 external addressable RGB LEDs:** connected through the PCB's J4 header and driven from GP19.
-- **128 × 128 OLED connection:** a seven-pin J1 header and screen-layout previews exist, but the actual display output is **not working in the current release**.
-- **Windows configurator:** set a shortcut per key, then send the CSV to the pad over its USB CDC **data** port. Saving also remembers the selected profile for the next boot.
+- **12 external addressable RGB LEDs:** driven from GP19.
+- **128 × 128 OLED connection:** screen-layout previews exist, but the actual display output is **not working in the current release**.
+- **Windows configurator:** set a shortcut per key, then send the CSV to the pad over its USB **data** port. Saving also remembers the selected profile for the next boot.
 
 ## CAD Model
 
 The complete assembly is [`cad/Macro Pad Case.step`](cad/Macro%20Pad%20Case.step); its STEP model contains the enclosure, PCB and Pico models. The printable parts are [`Top.step`, `Bottom.step`, `Button.step`, and `Button Stick.step`](production/board/hardware/).
 
-Before printing a full set, check clearances and mounting on a test print—especially PCB fit, switch retention, button travel and access to BOOTSEL. The suggested 0.2 mm clearance has **not** been verified on this design.
-
-<!-- Add an actual CAD screenshot here before submitting:
-![Case with PCB installed](assets/submission/case-fit.png)
--->
-**TODO:** add a screenshot of the case with the PCB fitted inside.
+<img width="866" height="842" alt="Fusion360_AeaDPuZyIa" src="https://github.com/user-attachments/assets/83e3cbb1-3a5b-413f-b407-e91f67043f34" />
 
 ## PCB
 
 The editable design is in [`pcb/`](pcb/): [`Macro Pad.kicad_pro`](pcb/Macro%20Pad.kicad_pro), [`Macro Pad.kicad_sch`](pcb/Macro%20Pad.kicad_sch), and [`Macro Pad.kicad_pcb`](pcb/Macro%20Pad.kicad_pcb). The current [Gerber/drill ZIP](production/board/hardware/Macro_Pad.zip) is in `production/board/hardware/`.
 
-**Pre-flight work remains:** switch/diode reference numbers differ between the schematic and PCB. Synchronize them, run KiCad ERC and a **zero-error DRC**, then export fresh Gerbers. The switch pads are through-hole; a hot-swap socket method still needs verification. The PCB uses a standard Pico footprint (standard Picos have **micro-USB**), so a requested USB-C variant would need its fit confirmed.
+<img width="717" height="822" alt="kicad_TkNy93j8DG" src="https://github.com/user-attachments/assets/02054f75-1ab6-4698-a302-42cdd0e744f9" />
 
-<!-- Add real KiCad screenshots here before submitting:
-![OrbitPad schematic](assets/submission/schematic.png)
-![OrbitPad PCB](assets/submission/pcb.png)
--->
-**TODO:** add screenshots of the finished schematic and PCB layout.
+<img width="1295" height="900" alt="kicad_1az4YGjgR1" src="https://github.com/user-attachments/assets/bb4180e5-70fd-4943-942d-e75b669fd3c5" />
 
 ## Firmware Overview
 
-The Pico runs **CircuitPython + [KMK](https://github.com/KMKfw/kmk_firmware)**. Its application is `production/board/software/code.py`; `boot.py` controls the normal/maintenance USB modes. The included `.uf2` installs CircuitPython, **not** the OrbitPad app. KMK itself is in `firmware/kmk/` and must also be copied onto the Pico.
+The Pico runs **CircuitPython + [KMK](https://github.com/KMKfw/kmk_firmware)**. Its application is `production/board/software/code.py`; `boot.py` controls the normal USB modes. The included `.uf2` installs CircuitPython, **not** the OrbitPad app. KMK itself is in `production/board/software/kmk/` and must also be copied onto the Pico.
 
-In the [Windows configurator](firmware/Configuration%20App/main.py), **Apply** saves the local CSV and **Save on Pad** uploads it. Only the **Shortcut** field sends a keystroke; icons and titles are labels. GP9 changes layers, while GP15 reveals `CIRCUITPY` when held during USB plug-in. On reboot, the last saved profile starts on its first layer.
+In the [Windows configurator](production/Configuration App/Configuration App.exe), **Apply** saves the local CSV and **Save on Pad** uploads it. Only the **Shortcut** field sends a keystroke, therefore icons and titles are labels. GP9 changes layers, while GP15 reveals `CIRCUITPY` when held during USB plug-in. On reboot, the last saved profile starts on its first layer.
 
-The OLED interface remains wired but `OLED_ENABLED = False` and screen uploads are off. Also verify `Ctrl+Z`/`Ctrl+Y` under a German QWERTZ Windows layout before calling the shortcuts finished. [Installation and manufacturing details →](production/README.md)
+The OLED interface remains wired but `OLED_ENABLED = False` and screen uploads are off. [Installation and manufacturing details →](production/README.md)
 
-**Software preview, not a photo of a functioning OLED:**
+**Software preview:**
 
 ![OrbitPad Default profile software preview](firmware/Configuration%20App/previews/screen_0_0.png)
 
 ## BOM
 
-A **preliminary** parts list from the KiCad design and off-board connectors; exact approved part numbers and the hot-swap method are still to be chosen:
+A parts list from the KiCad design and off-board connectors<img width="1295" height="900" alt="kicad_1az4YGjgR1" src="https://github.com/user-attachments/assets/efcbe9be-2eff-4edf-ac71-6a20c44f1e21" />
+<img width="1295" height="900" alt="kicad_1az4YGjgR1" src="https://github.com/user-attachments/assets/66cc4551-fa57-418c-8c32-355e9ced0177" />
+:
 
-- 1 × Raspberry Pi Pico (confirm the intended USB connector/variant)
-- 12 × MX-compatible switches and 12 keycaps; hot-swap hardware **not yet specified**
-- 12 × DO-35-footprint diodes
-- 2 × 6 mm pushbuttons (layer and maintenance)
+- 1 × RP2040 Raspberry Pi Pico; RPI-PICO
+- 12 × CHERRY MX Blue Switches; MX1A-E1NN
+- 12 × Diodes, THT, 100V, 300mA, DO35; 1N4148
+- 2 × 6 mm pushbuttons
 - 1 × 100 µF radial capacitor
-- 1 × SSD1351 128 × 128 OLED module and seven-pin connector (**OLED disabled for now**)
-- 2 × rotary encoders and their off-board connectors
-- 12 × addressable RGB LEDs in an **external** chain and a three-pin connector
-- 1 × USB data cable, case fasteners, and the printed parts listed above (verify quantities)
+- 1 × 1.5" 128x128 OLED display module, SPI/ I2C Interface; OLED-15W-C
+- 2 × rotary encoders; KY-040-2
+- 1 × NeoPixel ring with 12 WS2812 5050 RGB LEDs; NEOPR12
+- 1 × Adafruit MicroUSB extencion for Panel mounting; 3258
 
 ## Extra stuff
 
-The [production README](production/README.md) covers board flashing, KMK installation, connector pins and the release checklist. Before submitting, add the **four real images** marked above, finish DRC and case-fit checks, and verify the BOM against the approved parts list. The three OLED images in `firmware/Configuration App/previews/` are app mock-ups, **not** hardware photographs.
-
-Finally, commit and push the source and production folders: the Git snapshot inside the reviewed Drive ZIP tracked only six older files, not the `cad/`, `pcb/`, `firmware/` or `production/` trees. Check the live GitHub repository yourself after pushing, and add appropriate project/third-party license information.
+The [production README](production/README.md) covers board flashing, KMK installation and connector pins.
