@@ -4,10 +4,7 @@ OrbitPad is a 12-key macropad built around a Raspberry Pi Pico. It combines two 
 
 > **Current status:** The keyboard and configurator code is included, but the OLED is disabled in this firmware because its physical framebuffer output has not been verified. This is a project in progress, **not** a tested manufacturing release.
 
-<!-- Add an actual photo here before submitting:
-![Assembled OrbitPad](assets/submission/assembled-pad.jpg)
--->
-**TODO:** photograph the assembled pad and show it here.
+<img width="960" height="1280" alt="2" src="https://github.com/user-attachments/assets/c2acecba-3399-459d-a0bd-246ef520c840" />
 
 ## Features
 
