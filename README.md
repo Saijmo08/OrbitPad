@@ -44,7 +44,7 @@ The editable design is in [`pcb/`](pcb/): [`Macro Pad.kicad_pro`](pcb/Macro%20Pa
 
 The Pico runs **CircuitPython + [KMK](https://github.com/KMKfw/kmk_firmware)**. Its application is `production/board/software/code.py`; `boot.py` controls the normal USB modes. The included `.uf2` installs CircuitPython, **not** the OrbitPad app. KMK itself is in `production/board/software/kmk/` and must also be copied onto the Pico.
 
-In the [Windows configurator](production/Configuration App/Configuration App.exe), **Apply** saves the local CSV and **Save on Pad** uploads it. Only the **Shortcut** field sends a keystroke, therefore icons and titles are labels. GP9 changes layers, while GP15 reveals `CIRCUITPY` when held during USB plug-in. On reboot, the last saved profile starts on its first layer.
+In the [Windows configurator](`production/Configuration App/Configuration App.exe`), **Apply** saves the local CSV and **Save on Pad** uploads it. Only the **Shortcut** field sends a keystroke, therefore icons and titles are labels. GP9 changes layers, while GP15 reveals `CIRCUITPY` when held during USB plug-in. On reboot, the last saved profile starts on its first layer.
 
 The OLED interface remains wired but `OLED_ENABLED = False` and screen uploads are off. [Installation and manufacturing details →](production/README.md)
 
