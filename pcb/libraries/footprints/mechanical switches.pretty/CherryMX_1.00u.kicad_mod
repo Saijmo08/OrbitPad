@@ -1,0 +1,199 @@
+(footprint "CherryMX_1.00u"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Cherry MX switch footprint. Size: 1.00u, Mount type: Plate, Using Kailh Socket: no, Stabilizer: n/a, Lighting: none")
+	(tags "CherryMX 1.00u")
+	(property "Reference" "REF**"
+		(at 0 -8.6625 0)
+		(layer "F.SilkS")
+		(uuid "7848aa8b-468c-499f-a149-753a27b27b50")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CherryMX_1.00u"
+		(at 0 8.6625 0)
+		(layer "F.Fab")
+		(uuid "68f4759a-f773-4fdc-8f90-93415da66a01")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "21c84711-cdad-44ea-bf62-f95efad4c930")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a18f0429-391a-40e8-93e1-c911f98ea128")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -7 -7)
+		(end -7 7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ba27cc48-af2b-4362-9462-6eecbf3c3498")
+	)
+	(fp_line
+		(start -7 -7)
+		(end 7 -7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "323eb164-8328-43e9-915d-7f0b6a3a0486")
+	)
+	(fp_line
+		(start 7 -7)
+		(end 7 7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "73ef1b24-be9d-44f4-85db-c8dab61243b4")
+	)
+	(fp_line
+		(start 7 7)
+		(end -7 7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "320ac373-c366-4f7e-9dd6-6eee610c1a0e")
+	)
+	(fp_line
+		(start -9.525 -9.525)
+		(end 9.525 -9.525)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "7cd1738d-a4c7-4cf7-9410-71355600969e")
+	)
+	(fp_line
+		(start -9.525 9.525)
+		(end -9.525 -9.525)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "845cb058-f8f1-49bc-a3e7-8abb5322ce86")
+	)
+	(fp_line
+		(start 9.525 -9.525)
+		(end 9.525 9.525)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "97eb696b-0bc4-4c9d-b38a-d389f81953ce")
+	)
+	(fp_line
+		(start 9.525 9.525)
+		(end -9.525 9.525)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "7dfbe376-4d7d-4499-816e-6ee33692d089")
+	)
+	(fp_line
+		(start -7.8 -7.8)
+		(end -7.8 7.8)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2e64bcb6-92fb-459b-a6de-82b44767d2b3")
+	)
+	(fp_line
+		(start -7.8 -7.8)
+		(end 7.8 -7.8)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c179f6bc-dba2-45b6-9114-552ad45d3fe9")
+	)
+	(fp_line
+		(start -7.8 7.8)
+		(end 7.8 7.8)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fa1f3fca-77b3-499d-97b3-376957da8091")
+	)
+	(fp_line
+		(start 7.8 -7.8)
+		(end 7.8 7.8)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4807960d-6fab-4d00-825a-43f1f1d32faa")
+	)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 4 4)
+		(drill 4)
+		(layers "*.Cu" "*.Mask")
+		(uuid "f8106838-2a07-431f-bcce-d895cb739ab9")
+	)
+	(pad "1" thru_hole circle
+		(at -3.81 -2.54)
+		(size 2.2 2.2)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2a624b9f-8c87-4918-a259-547b1783bfbf")
+	)
+	(pad "2" thru_hole circle
+		(at 2.54 -5.08)
+		(size 2.2 2.2)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ab4d3c3e-3fbb-45f6-bdd7-94e6b5048380")
+	)
+	(embedded_fonts no)
+)
