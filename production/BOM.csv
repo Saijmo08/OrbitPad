@@ -1,0 +1,11 @@
+amount,product_name,product_number,price_per_piece,link
+1,RP2040 Raspberry Pi Pico,RPI-PICO,4.10€,https://www.berrybase.de/raspberry-pi-pico-rp2040-mikrocontroller-board
+12,CHERRY MX Blue Switches,MX1A-E1NN,1.09€,https://www.berrybase.de/cherry-mx-blue-drucktastenmodul-schnappbefestigung
+12,Diodes THT 100V 300mA DO35,1N4148,0.04€,https://www.berrybase.de/1n4148-schaltdiode-tht-100v-300ma-do35
+2,6 mm Push-buttons,GR-YM-096,0.05€,https://www.amazon.de/Youmile-100PACK-Schalter-6x6x5mm-Momentary-2poliges-DIP-6-x-5-mm/dp/B07XWYHPZH?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A3BN2T8LLIRB5S
+1,100 µF radial capacitor,UBT2A101MHD8,1.82€,https://www.mouser.de/de/ProductDetail/Nichicon/UBT2A101MHD8?qs=9yI11AV48ZQWrljCTIF1IA%3D%3D&mgh=1&vip=1&srsltid=AYCX9vLFowsOP3WgafgL88F5ZjM7Vkkr_CPkSFV8sa1ygcf0kO-6t15xd4E
+1,1.5" 128x128 OLED display module SPI/ I2C Interface,OLED-15W-C,12.90€,https://www.berrybase.de/1.5-128x128-oled-display-modul-einfarbig-weiss-spi-i2c-interface
+2,rotary encoders,KY-040-2,1.40€,https://www.berrybase.de/drehregler-rotary-encoder-mit-breakoutboard-ohne-gewinde-und-mutter
+1,NeoPixel ring with 12 WS2812 5050 RGB LEDs,NEOPR12,3.40€,https://www.berrybase.de/neopixel-ring-mit-12-ws2812-5050-rgb-leds
+1,Adafruit MicroUSB extencion for Panel mounting,3258,10.25€,https://paradisetronic.com/en/products/adafruit-microusb-verlaengerung-panel-montage-stecker-buchse?srsltid=AYCX9vK3DIPCdli9JI7KkVTK142GYDp0Q_SnPlokraYZd0yQabHuMpg9
+3,custom pcb,None,19.73€,https://aisler.net/de
