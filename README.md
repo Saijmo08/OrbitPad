@@ -63,6 +63,8 @@ A parts list from the off-board connectors:
 - 1 × NeoPixel ring with 12 WS2812 5050 RGB LEDs; NEOPR12
 - 1 × Adafruit MicroUSB extencion for Panel mounting; 3258
 
+For a more detailed list of all the parts take a look at the **BOM.csv** at `production/BOM.csv`.
+
 ## Extra stuff
 
 The [production README](production/README.md) covers board flashing, KMK installation and connector pins.
