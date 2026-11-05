@@ -51,7 +51,7 @@ The OLED interface remains wired but `OLED_ENABLED = False` and screen uploads a
 
 ## BOM
 
-A parts list from the KiCad design and off-board connectors:
+A parts list from the off-board connectors:
 
 - 1 × RP2040 Raspberry Pi Pico; RPI-PICO
 - 12 × CHERRY MX Blue Switches; MX1A-E1NN
